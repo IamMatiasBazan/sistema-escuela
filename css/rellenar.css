@@ -1,0 +1,27 @@
+#rellenar {
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    width: 500px;
+    height: 500px;
+}
+
+#rellenar_campos{
+    position: absolute;
+    top: 40%;
+    font-size: 30px;
+}
+
+#completar{
+    position: absolute;
+    top: 10%;
+    left: 33%;
+    width: 500px;
+    height: 500px;
+}
+
+#completar_campos{
+    position: absolute;
+    top: 40%;
+    font-size: 35px;
+}

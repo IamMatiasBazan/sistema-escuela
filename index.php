@@ -17,39 +17,8 @@
   </head>
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
-      <?php 
-        if (isset($_POST['btn-iniciar-secion'])) {
-          include ('database/abrir_conexion.php');
-          
-
-          $nombre = $_POST['nombre'];
-          $password = $_POST['contrasenia'];
-
-          if($nombre == "" || $password == "" ) {
-            echo '<div class="alert alert-danger" role="alert">
-                    Rellene los campos.
-                  </div>';
-          } else {
-            $q = "SELECT COUNT(*) AS contar FROM $tabla1 WHERE correo = '$nombre' AND passwor = '$password'";
-            $consulta = mysqli_query($conexion, $q);
-            $array = mysqli_fetch_array($consulta);
-              
-            if($array['contar'] > 0) {
-              $_SESSION['correo'] = $correo;
-              echo "<script>
-                      window.location.href='bienvenido.php'
-                    </script>";
-            } else {
-              echo '<div class="alert alert-danger" role="alert">
-                      Datos incorrectos.
-                    </div>';
-            }
-          }
-
-        }
-      ?>
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
-        <img class="mb-4" src="img/carrito-de-compras.png" alt="" width="72" height="70">
+      <form action="duenio/bienvenido.php" method="POST">
+        <img class="mb-4" src="img/Logo.png" alt="" width="102" height="110">
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
         <div class="form-floating">
@@ -63,11 +32,10 @@
             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
           </svg>
-          <label>Password</label>
+          <label>Contraseña</label>
         </div>
-
-        <button class="w-100 btn btn-lg btn-primary" name="btn-crear-cuenta" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+        <button class="w-100 btn btn-lg btn-primary" name="btn-entrar" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
       </form>
     </main>
     <script src="js/eye.js"></script>   
