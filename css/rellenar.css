@@ -25,3 +25,22 @@
     top: 40%;
     font-size: 35px;
 }
+
+.menu {
+    position: absolute;
+    top: 25%;
+    font-size: 15px;
+    width: 13%;
+    height: 60%;
+    background-color: #0081C9;
+}
+
+.parrafos{
+    position: absolute;
+    top: 13%;
+    left: 2%;
+}
+
+p{
+    font-family: 'Rubik Bubbles';
+}
