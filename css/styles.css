@@ -1,0 +1,45 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #041562;
+  }
+  
+  #seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .titulo {
+    color: white;
+    font-size: 32px;
+    font-family: 'Fredoka One', cursive;
+  }
+  
+  .subtitulo {
+    color: white;
+    font-size: 20px;
+  }
+ 
+  #duenio {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 25%;
+    right: 65%;
+  }
+
+  #profesor {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 25%;
+    right: 44.5%;
+  }
+   #alumno {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 25%;
+    left: 63%;
+    }
