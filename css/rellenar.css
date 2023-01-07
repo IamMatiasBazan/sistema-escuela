@@ -26,6 +26,10 @@
     font-size: 35px;
 }
 
+h1{
+    font-family: 'Poppins', sans-serif;
+}
+
 .menu {
     position: absolute;
     top: 25%;
@@ -41,6 +45,34 @@
     left: 2%;
 }
 
-p{
+p {
     font-family: 'Rubik Bubbles';
+}
+
+#nombre{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    padding: 10px 100px 0 100px;
+}
+
+#perfil{
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    padding: 10px 150px 10px 150px;
+}
+
+#password{
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    padding: 10px 100px 0 100px;
+}
+
+#btn {
+    position: absolute;
+    top: 55%;
+    left: 40%;
+    padding: 10px 180px 10px 150px;
 }

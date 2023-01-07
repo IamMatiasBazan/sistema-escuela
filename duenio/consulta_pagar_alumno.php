@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- INICIANDO BOOTSTRAP -->
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/rellenar.css">
 </head>
 <body>
+    
     <?php 
         if (isset($_POST['btn-entrar'])) {
         include ('../database/abrir_conexion.php');
@@ -36,13 +37,14 @@
                 echo "<center><h1>Bienvenido $nombre</h1></center>";
                 echo "<div class='menu'>
                     <div class='parrafos'> 
-                        <p>Crear y asignarles el perfil</p>
-                        <p>Cargar y consulta de las materias</p>
-                        <p>Consulta el monto a pagar a los alumno</p>
-                        <p>Consulta el monto a pagar a los profesores</p>
-                        <p>Consultar clases de profesores y alumno<p>
+                        <a href='crear_perfil.php'><p>Crear y asignarles el perfil</p></a>
+                        <a href='cargar_materias.php'><p>Cargar y consulta de las materias</p></a>
+                        <a href='consulta_pagar_alumno.php'><p>Consulta el monto a pagar a los alumno</p></a>
+                        <a href='consulta_pagar_profesores.php'><p>Consulta el monto a pagar a los profesores</p></a>
+                        <a href='consultar_clases.php'><p>Consultar clases de profesores y alumno<p></a>
                     </div>
                 </div>";
+                echo "<div class=''>";
             } else {
             echo '<div class="alert alert-danger" id="completar" role="alert">
                     <center><p id="completar_campos">Datos incorrectos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
@@ -51,6 +53,7 @@
         }
 
         }
-    ?>
+        ?>
+    
 </body>
 </html>

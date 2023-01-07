@@ -17,7 +17,7 @@
   </head>
   <body class="text-center">
     <main class="form-signin w-100 m-auto">
-      <form action="../duenio/bienvenido.php" method="POST">
+      <form action="../duenio/consulta_pagar_alumno.php" method="POST">
         <img class="mb-4" src="../img/Logo.png" alt="" width="102" height="110">
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 

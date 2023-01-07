@@ -22,7 +22,7 @@
         <h1 class="h3 mb-3 fw-normal">Login</h1>
 
         <div class="form-floating">
-          <input type="text" class="form-control" name="nombre" placeholder="name@example.com">
+          <input type="text" class="form-control" name="nombre" placeholder="Nombre">
           <label>Nombre</label>
         </div>
         
