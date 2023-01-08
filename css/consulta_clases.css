@@ -1,0 +1,76 @@
+.menu {
+    position: absolute;
+    top: 25%;
+    font-size: 15px;
+    width: 13%;
+    height: 60%;
+    background-color: #041562;
+}
+
+.parrafos{
+    position: absolute;
+    top: 13%;
+    left: 2%;
+}
+
+p {
+    font-family: 'Rubik Bubbles';
+}
+
+h1 {
+    position: fixed;
+    top: 2%;
+    text-align: center;
+}
+
+.selects{
+    position: fixed;
+    top: 20%;
+    left: 20%;
+}
+
+#select {
+    padding: 10px 30px 10px 30px;
+}
+
+.alumnos {
+    position: fixed;
+    top: 20%;
+    left: 35%;
+}
+
+.year-desde {
+    position: fixed;
+    top: 21%;
+    left: 50%;
+}
+
+.year-hasta {
+    position: fixed;
+    top: 21%;
+    left: 68%;
+}
+
+#year {
+    padding: 5px 20px 5px 20px;
+}
+
+.profesores {
+    position: fixed;
+    top: 30%;
+    left: 20%;
+}
+
+#profesor {
+    padding: 10px 30px 10px 30px;
+}
+
+#btn {
+    position: fixed;
+    top: 30%;
+    left: 33%;
+}
+
+#btn-filtrar {
+    padding: 10px 345px 10px 345px;
+}

@@ -76,3 +76,9 @@ p {
     left: 40%;
     padding: 10px 180px 10px 150px;
 }
+
+/* -------Materias COMBOBOX ------------*/
+.materias{
+    position: relative;
+    top: 40%;
+}

@@ -26,16 +26,42 @@
         </div>
     </div>
     
+    <?php
+        include ("../database/abrir_conexion.php");    
+        if (isset($_POST['boton'])) {
+            
+            $nombre = $_POST['nombre'];
+            $perfiles = $_POST['perfiles'];
+            $contrasenia = $_POST['contrasenia'];
+
+            $tablaUsuario = "INSERT INTO $tabla3(nombre) VALUES('$perfiles')";
+            print($tablaUsuario);
+            $q = mysqli_query($conexion, $tablaUsuario);
+
+            if($q == 1){
+                $tablaUsuario = "INSERT INTO $tabla4(nombre, rol_id, contrasenia) VALUES('$nombre','$perfiles','$contrasenia')";
+                
+                $q2 = mysqli_query($conexion, $tablaUsuario);
+                echo '<div class="alert alert-success" role="alert">
+                    <center>Guardado exitosamente</center>
+                </div>';   
+            } else {
+                echo '<div class="alert alert-danger" role="alert">
+                    <center>Falla al guardar</center>
+                </div>';    
+            }
+        }
+    ?>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
         <div>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-            <select name="perfil" id="perfil">
+            <select name="perfiles" id="perfil">
                 <option value="1">Dueño</option>
                 <option value="2">Profesor</option>
                 <option value="3">Alumno</option>
-            <select>
-            <input type="text" name="nombre" id="password" placeholder="Password">
-            <button type="submit" class="btn btn-primary" id="btn">Guardar</button>
+            </select>
+            <input type="text" name="contrasenia" id="password" placeholder="Password">
+            <button type="submit" class="btn btn-primary" id="btn" name="boton">Guardar</button>
         </div>
     </form>
 
