@@ -12,8 +12,7 @@
                         where roles.nombre = 'Profesor'"; 
     $guardar = $conexion->query($consulta);
     $guardar2 = $conexion->query($selectAlumno);
-    $guardar3 = $conexion->query($selectProfesor);
-    
+    $guardar3 = $conexion->query($selectProfesor);    
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +43,7 @@
     </div>
         <div class="selects">
             <h1>Consultar clases de alumnos y profesores</h1>
-            <form action="" method="POST">
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                 <div class="materias">
                     <select name="materia" id="select">
                         <?php while($row = $guardar->fetch_assoc()){ ?>
@@ -62,10 +61,10 @@
                     </select>
                 </div>
                 <div class="year-desde">
-                    <input type="date" id="year">
+                    <input type="date" id="year" name="anio-desde">
                 </div>
                 <div class="year-hasta">
-                    <input type="date" id="year">
+                    <input type="date" id="year" name="anio-hasta">
                 </div>
                 <div class="profesores">
                     <select name="profesor" id="profesor">
@@ -77,9 +76,24 @@
                     </select>
                 <div>
                 <div id="btn">
-                    <button class="btn btn-primary" type="submit" id="btn-filtrar">Filtrar</button>
+                    <button class="btn btn-primary" type="submit" id="btn-filtrar" name="boton-filtrar">Filtrar</button>
                 </div>
             </form>
         </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h3 class="text-center">Tabla</h3>
+                <div class="table-responsive tabla-hover" id="TablaConsulta">
+                    
+                    <table class="table">
+                        <thead>
+                            <th class="text-center">Clases</th>
+                            <th class="text-center">Profesor</th>
+                            <th class="text-center">Fecha</th>
+                            <th class="text-center">Estado</th>
+                        </thead>
+                    </table>
+                </div>
+            </div>
 </body>
 </html>

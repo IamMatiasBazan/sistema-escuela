@@ -13,6 +13,7 @@
     <!--CERRANDO GOOGLE FONT-->
     <title>Document</title>
     <link rel="stylesheet" href="../css/rellenar.css">
+    <link rel="stylesheet" href="../css/alumno.css">
 </head>
 <body>
     <?php 
@@ -36,10 +37,34 @@
                 echo "<center><h1>Bienvenido $nombre</h1></center>";
                 echo "<div class='menu'>
                     <div class='parrafos'> 
-                        <p>Consulta y carga de clases</p>
-                        <p>Consulta de sueldo</p>
+                        <a href='bienvenido.php'><p>Consulta y carga de clases</p><a>
+                        <a href='consulta_de_sueldo.php'><p>Consulta de sueldo</p><a>
                     </div>
                 </div>";
+                echo '<div>
+                    <form action="echo htmlspecialchars($_SERVER["PHP_SELF"])" method="POST">
+                        <div>
+                            <input type="text" name="clases" id="nombre" placeholder="Clases">
+                            <input type="date" name="fecha" id="fecha">
+                            <div id="radios">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1" id="radio1">
+                                    <label class="form-check-label" for="radio1">
+                                        Completado
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radio1" id="radio1">
+                                        <label class="form-check-label" for="radio1">
+                                            Cancelado
+                                        </label>
+                                </div>
+                           </div>
+                           <input type="text" name="alumno" id="alumno" placeholder="Alumno">
+                            <button type="submit" class="btn btn-primary" id="btn" name="boton">Guardar</button>
+                        </div>
+                    </form>
+                </div>';
             } else {
             echo '<div class="alert alert-danger" id="completar" role="alert">
                     <center><p id="completar_campos">Datos incorrectos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
@@ -48,6 +73,9 @@
         }
 
         }
+    ?>
+    <?php 
+        
     ?>
 </body>
 </html>

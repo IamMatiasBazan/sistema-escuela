@@ -1,3 +1,19 @@
+<?php 
+    include("../database/abrir_conexion.php");
+        
+    $consulta = "SELECT * FROM $tabla2";
+    $selectAlumno = "SELECT usuarios.nombre 
+                    FROM usuarios 
+                        JOIN roles on roles.id = usuarios.rol_id
+                    where roles.nombre = 'Alumno'";
+    $selectProfesor = "SELECT usuarios.nombre 
+                        FROM usuarios 
+                            JOIN roles on roles.id = usuarios.rol_id
+                        where roles.nombre = 'Profesor'"; 
+    $guardar = $conexion->query($consulta);
+    $guardar2 = $conexion->query($selectAlumno);
+    $guardar3 = $conexion->query($selectProfesor);    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +29,7 @@
     <!--CERRANDO GOOGLE FONT-->
     <title>Document</title>
     <link rel="stylesheet" href="../css/rellenar.css">
+    <link rel="stylesheet" href="../css/consulta_clases.css">
 </head>
 <body>
 <div class='menu'>
@@ -24,5 +41,36 @@
             <a href='consultar_clases.php'><p>Consultar clases de profesores y alumno<p></a>
         </div>
     </div>
+
+    <div class="selects">
+            <h1>Consultar clases de alumnos y profesores</h1>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+                <div class="materias">
+                    <select name="materia" id="select">
+                        <?php while($row = $guardar->fetch_assoc()){ ?>
+                            <option><?php echo $row['nombre']?></option>
+                        <?php } ?>
+                        </select>
+                    </div>
+                <div class="year-desde">
+                    <input type="date" id="year" name="anio-desde">
+                </div>
+                <div class="year-hasta">
+                    <input type="date" id="year" name="anio-hasta">
+                </div>
+                <div class="profesores">
+                    <select name="profesor" id="profesor">
+                    <?php while($row = $guardar3->fetch_assoc()){ ?>
+                        <option>
+                                <?php echo $row['nombre']?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                <div>
+                <div id="btn">
+                    <button class="btn btn-primary" type="submit" id="btn-filtrar" name="boton-filtrar">Filtrar</button>
+                </div>
+            </form>
+        </div>
 </body>
 </html>

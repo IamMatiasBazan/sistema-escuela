@@ -12,8 +12,7 @@
         <h2 class="subtitulo">Elige tu:</h2>
         <a href="login/duenio.php"><img src="img/duenio.png" id="duenio"></a>
         <a href="login/profesor.php"><img src="img/profesor.png" id="profesor"></a>
-        <a href="login/alumno.php"><img src="img/alumno.png" id="alumno"></a>
+        <a href="login/alumno.php"><img src="img/alumnos.png" id="alumno"></a>
     </section>
-<script src="./js/mokepon.js"></script>
 </body>
 </html>

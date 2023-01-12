@@ -74,3 +74,15 @@ h1 {
 #btn-filtrar {
     padding: 10px 345px 10px 345px;
 }
+
+h3 {
+    position: absolute;
+    top: 190%;
+    left: 395%;
+}
+
+table {
+    position: absolute;
+    top: 290%;
+    left: 300%;
+}
