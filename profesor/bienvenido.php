@@ -1,3 +1,29 @@
+<?php
+    include("../database/abrir_conexion.php");
+
+    if(isset($_POST['boton'])) {
+        $clases = $_POST['clases'];
+        $fecha = $_POST['fecha'];
+        $radio1 = $_POST['radio1'];
+        $id_alumno = $_POST['id_alumno'];
+        $id_profesor = $_POST['id_profesor'];
+        $id_materia = $_POST['id_materia'];
+
+        if($clases == "" || $fecha == "" || $radio1 == "" || $id_alumno == "" || $id_profesor == "" || $id_materia == ""){
+            echo '<div class="alert alert-danger" role="alert">
+                Rellene los campos
+            </div>';
+        } else {
+            mysqli_query($conexion, "INSERT INTO $clases(fecha_dictado, estado, alumno_id, profesor_id, materia_id) 
+            VALUES ('$fecha','$radio1','$id_alumno','$id_profesor','$id_materia'");
+            echo '<div class="alert alert-success" role="alert">
+                    Guardado exitosamente.
+                </div>';
+        }
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +40,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/rellenar.css">
     <link rel="stylesheet" href="../css/alumno.css">
+    <link rel="stylesheet" href="../css/crear_clases_profesor.css">
 </head>
 <body>
     <?php 
@@ -60,7 +87,9 @@
                                         </label>
                                 </div>
                            </div>
-                           <input type="text" name="alumno" id="alumno" placeholder="Alumno">
+                           <input type="number" name="id_alumno" id="alumno" placeholder="Alumno">
+                           <input type="number" name="id_profesor" id="profesor" placeholder="Profesor">
+                           <input type="number" name="id_materia" id="materia" placeholder="Materia">
                             <button type="submit" class="btn btn-primary" id="btn" name="boton">Guardar</button>
                         </div>
                     </form>

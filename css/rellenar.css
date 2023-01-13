@@ -70,12 +70,6 @@ p {
     padding: 10px 100px 0 100px;
 }
 
-#btn {
-    position: absolute;
-    top: 55%;
-    left: 40%;
-    padding: 10px 180px 10px 150px;
-}
 
 /* -------Materias COMBOBOX ------------*/
 .materias{

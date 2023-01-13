@@ -18,42 +18,40 @@
     
     <?php 
         if (isset($_POST['btn-entrar'])) {
-        include ('../database/abrir_conexion.php');
-        
-
-        $nombre = $_POST['nombre'];
-        $password = $_POST['contrasenia'];
-
-        if($nombre == "" || $password == "" ) {
-            echo '<div class="alert alert-danger" id="rellenar" role="alert">
-            <center><p id="rellenar_campos">Rellene los campos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
-          </div>';
-        } else {
-            $q = "SELECT COUNT(*) AS contar FROM $tabla4 WHERE nombre = '$nombre' AND contrasenia = '$password'";
-            $consulta = mysqli_query($conexion, $q);
-            $array = mysqli_fetch_array($consulta);
+            include ('../database/abrir_conexion.php');
             
-            if($array['contar'] > 0) {
-                echo "<center><h1>Bienvenido $nombre</h1></center>";
-                echo "<div class='menu'>
-                    <div class='parrafos'> 
-                        <a href='crear_perfil.php'><p>Crear y asignarles el perfil</p></a>
-                        <a href='cargar_materias.php'><p>Cargar y consulta de las materias</p></a>
-                        <a href='consulta_pagar_alumno.php'><p>Consulta el monto a pagar a los alumno</p></a>
-                        <a href='consulta_pagar_profesores.php'><p>Consulta el monto a pagar a los profesores</p></a>
-                        <a href='consultar_clases.php'><p>Consultar clases de profesores y alumno<p></a>
-                    </div>
-                </div>";
-                echo "<div class=''>";
+
+            $nombre = $_POST['nombre'];
+            $password = $_POST['contrasenia'];
+
+            if($nombre == "" || $password == "" ) {
+                echo '<div class="alert alert-danger" id="rellenar" role="alert">
+                <center><p id="rellenar_campos">Rellene los campos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
+            </div>';
             } else {
-            echo '<div class="alert alert-danger" id="completar" role="alert">
-                    <center><p id="completar_campos">Datos incorrectos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
-                </div>';
+                $q = "SELECT COUNT(*) AS contar FROM $tabla4 WHERE nombre = '$nombre' AND contrasenia = '$password'";
+                $consulta = mysqli_query($conexion, $q);
+                $array = mysqli_fetch_array($consulta);
+                
+                if($array['contar'] > 0) {
+                    echo "<center><h1>Bienvenido $nombre</h1></center>";
+                    echo "<div class='menu'>
+                        <div class='parrafos'> 
+                            <a href='crear_perfil.php'><p>Crear y asignarles el perfil</p></a>
+                            <a href='cargar_materias.php'><p>Cargar y consulta de las materias</p></a>
+                            <a href='consulta_pagar_alumno.php'><p>Consulta el monto a pagar a los alumno</p></a>
+                            <a href='consulta_pagar_profesores.php'><p>Consulta el monto a pagar a los profesores</p></a>
+                            <a href='consultar_clases.php'><p>Consultar clases de profesores y alumno<p></a>
+                        </div>
+                    </div>";
+                } else {
+                echo '<div class="alert alert-danger" id="completar" role="alert">
+                        <center><p id="completar_campos">Datos incorrectos<a href="../index.php" class="alert-link"> INICIAR SESION.</a></p></center>
+                    </div>';
+                }
             }
         }
-
-        }
-        ?>
+    ?>
     
 </body>
 </html>

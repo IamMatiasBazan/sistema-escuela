@@ -1,0 +1,20 @@
+#profesor {
+    position: absolute;
+    top: 63%;
+    left: 40%;
+    padding: 10px 100px 10px 100px;
+}
+
+#materia {
+    position: absolute;
+    top: 73%;
+    left: 40%;
+    padding: 10px 100px 10px 100px;
+}
+
+#btn {
+    position: absolute;
+    top: 83%;
+    left: 40%;
+    padding: 10px 180px 10px 150px;
+}
