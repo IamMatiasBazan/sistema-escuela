@@ -65,20 +65,10 @@ h1 {
     padding: 10px 30px 10px 30px;
 }
 
-#btn {
-    position: fixed;
-    top: 30%;
-    left: 33%;
-}
-
-#btn-filtrar {
-    padding: 10px 345px 10px 345px;
-}
-
 h3 {
     position: absolute;
     top: 190%;
-    left: 395%;
+    left: 375%;
 }
 
 table {

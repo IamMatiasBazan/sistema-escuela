@@ -30,6 +30,7 @@
     <!--CERRANDO GOOGLE FONT-->
     <title>Document</title>
     <link rel="stylesheet" href="../css/consulta_clases.css">
+    <link rel="stylesheet" href="../css/clases.css">
 </head>
 <body>
     <div class='menu'>
@@ -46,6 +47,7 @@
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                 <div class="materias">
                     <select name="materia" id="select">
+                        <option>...</option>
                         <?php while($row = $guardar->fetch_assoc()){ ?>
                             <option><?php echo $row['nombre']?></option>
                         <?php } ?>
@@ -53,6 +55,7 @@
                     </div>
                 <div class="alumnos">
                     <select name="alumno" id="select">
+                        <option>...</option>
                         <?php while($row = $guardar2->fetch_assoc()){ ?>
                             <option>
                                 <?php echo $row['nombre']?>
@@ -68,6 +71,7 @@
                 </div>
                 <div class="profesores">
                     <select name="profesor" id="profesor">
+                        <option>...</option>
                     <?php while($row = $guardar3->fetch_assoc()){ ?>
                         <option>
                                 <?php echo $row['nombre']?>
@@ -75,23 +79,56 @@
                         <?php } ?>
                     </select>
                 <div>
+                <div class="estados">
+                    <select name="estado" id="estado">
+                        <option>...</option>
+                        <option value="completado">Completado</option>
+                        <option value="cancelado">Cancelado</option>
+                    </select>
+                </div>
                 <div id="btn">
                     <button class="btn btn-primary" type="submit" id="btn-filtrar" name="boton-filtrar">Filtrar</button>
                 </div>
             </form>
         </div>
+            <?php
+                if(isset($_POST['boton-filtrar'])) {
+                    $materias = $_POST['materia'];
+                    $alumnos = $_POST['alumno'];
+                    $anio_desde = $_POST['anio-desde'];
+                    $anio_hasta = $_POST['anio-hasta'];
+                    $profesores = $_POST['profesor'];
+                    $estado = $_POST['estado'];
+
+                    
+                    $sql = mysql_query("SELECT m.nombre, prof.nombre,cla.fecha_dictado, cla.estado 
+                                from clases cla
+                                    inner join materias m ON cla.materia_id = m.id
+                                    inner join usuarios alum on  cla.alumno_id = alum.id
+                                    inner join usuarios prof on  cla.profesor_id = prof.id 
+                                where 
+                                    1=1
+                                    AND m.nombre = '$materias' 
+                                    AND alum.nombre = '$alumnos'
+                                    AND prof.nombre = '$profesores'
+                                    AND cla.fecha_dictado between date'2022-04-03' and date'2023-09-04'
+                                    AND cla.estado = '$estado'");
+                }
+            ?>
 
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h3 class="text-center">Tabla</h3>
                 <div class="table-responsive tabla-hover" id="TablaConsulta">
                     
                     <table class="table">
-                        <thead>
-                            <th class="text-center">Clases</th>
-                            <th class="text-center">Profesor</th>
-                            <th class="text-center">Fecha</th>
-                            <th class="text-center">Estado</th>
-                        </thead>
+                            <?php while($rowSql = $mysql_fetch_assoc($sql)){ ?>
+                                <tr>
+                                    <td class="text-center">Materia</td><?php echo $rowSql['nombre']?>
+                                    <td class="text-center">Profesor</td><?php echo $rowSql['nombre']?>
+                                    <td class="text-center">Fecha</td><?php echo $rowSql['fecha_dictado']?>
+                                    <td class="text-center">Estado</td><?php echo $rowSql['estado']?>
+                                <tr>
+                            <?php } ?>
                     </table>
                 </div>
             </div>
